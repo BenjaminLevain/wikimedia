@@ -1,7 +1,11 @@
 - What additional things would you want to operate this application in a production setting?
+    - To answer
 - What might change about your solution if this application needed to run automatically for each hour of the day?
+    - To answer  
 - How would you test this application?
+    - To answer 
 - How you’d improve on this application design?
+    - To answer 
 - We want to provide a database with the data you downloaded to be able to answer similar questions (and more) to the one provided above. Please write down what the schema would look like.
     - How would you answer the questions Q1, Q2 and Q3 in the technical test section using SQL and your schema ? Write down the SQL queries for it.
     - Assume that a page can now optionally be part of one or more categories.
