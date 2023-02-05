@@ -1,16 +1,11 @@
 # wikimedia
 Project for downloading data from wikimedia and analyse it automatically
 
-### Install pyspark with pip
-
-# izibricks
-
-code of databricks jobs
-
-## prerequisite 
+## Prerequisite 
 
 * python >= 3.8
 * pypark
+* command for installing pyspark
 
 ```text
  pip install pyspark
@@ -28,7 +23,7 @@ code of databricks jobs
     * First it is the start datetime parameter , writen as a string with this format `%Y-%m-%d %H:%M:%S'`
     * Second it is the end datetime parameter , writen as a string with this format `%Y-%m-%d %H:%M:%S'`
     * Last is the location where you want to save your parquet data
-  * Exemple:
+  * Exemple to run it:
     * `python loading_data_wikimedia.py '2022-01-01 00:00:00' '2023-01-01 00:00:00' '/Users/benjaminlevain/Documents/results'`
     
 * analytics_function.py
