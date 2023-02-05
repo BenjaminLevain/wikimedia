@@ -63,7 +63,6 @@ for datetime in date_times_list:
   ###get path to save the data defined in one of the parameter given into the command line
   core_path = '/Users/benjaminlevain/Documents/results'
   core_path = sys.argv[3]
-  path_to_save = f'{core_path}/{year}/{year}-{month}/{year}{month}{day}-{hour}0000.csv'
   path_to_save =f'{core_path}/year={year}/year-month={year}-{month}/{year}{month}{day}/{year}{month}{day}-{hour}0000'
 
   ####check if the data has been already loaded or not in order to save time if yes 
