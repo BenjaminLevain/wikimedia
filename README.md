@@ -16,11 +16,12 @@ code of databricks jobs
  pip install pyspark
  ```
  
-## Scripts
+## Scripts in the repo
 
 * blacklist_domains_and_pages
   * It contains the list of the unwanted pages we want to remove from our data
-  * It has to be located in the same folder of the other module scripts
+  * It has to be located in the same folder of the other module scripts`
+  
 * loading_data_wikimedia.py
   * It is the script to execute to load data for a given range and a given path where to save the data
   * It has to be executed in a terminal and it has three parameters
@@ -29,8 +30,11 @@ code of databricks jobs
     * Last is the location where you want to save your parquet data
   * Exemple:
     * `python loading_data_wikimedia.py '2022-01-01 00:00:00' '2023-01-01 00:00:00' '/Users/benjaminlevain/Documents/results'`
+    
 * analytics_function.py
-  * It contains several functions to answer the businnes question asked
+  * It contains several functions to answer the business questions asked
   * Each function enables to answer each questions but I would have also could splitting into single tasks functions and apply several function to answer one questions. 
+  * I put in a string in the code the philosophy of each functions
+  * The time granularity chose was the day but it is debatable. for instance for question 2 , it not idiot to take the week to don't have drop or spike sensitive to the day of the week
 
 
