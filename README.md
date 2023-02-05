@@ -38,7 +38,7 @@ code of databricks jobs
   * The time granularity chose was the day but it is debatable. for instance for question 2 , it not idiot to take the week to don't have drop or spike sensitive to the day of the week
   
  ## Written functions
- see [README](salesforce/README.md)
+ see [README](WrittenQuestions.md)
 
 
 
