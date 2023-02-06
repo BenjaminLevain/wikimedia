@@ -26,7 +26,7 @@ Project for downloading data from wikimedia and analyse it automatically
   * Exemple to run it:
     * `python loading_data_wikimedia.py '2022-01-01 00:00:00' '2023-01-01 00:00:00' '/Users/benjaminlevain/Documents/results'`
     
-* analytics_function.py
+* **analytics_function.py**
   * It contains several functions to answer the business questions asked
   * Each function enables to answer each questions but I would have also could splitting into single tasks functions and apply several function to answer one questions. 
   * I put in a string in the code the philosophy of each functions
