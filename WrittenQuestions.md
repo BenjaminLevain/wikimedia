@@ -47,7 +47,7 @@ total_response_size INT NOT NULL,
 )
 ```
 - SQL REQUEST for Q1 
-`
+```
 SELECT 
 domain_code,
 page_title,
@@ -71,7 +71,7 @@ GROUP BY CAST(datetime as DATE),page_title,domain_code) as table 1
 GROUP BY domain_code,page_title,MAX_DELTA_COUNT_VIEWS_OVER_THE_YEAR,MIN_COUNT_VIEWS_OVER_THE_YEAR,MAX_COUNT_VIEWS_OVER_THE_YEAR
 ORDER BY  MAX_DELTA_COUNT_VIEWS_OVER_THE_YEAR DESC
 LIMIT 10
-`
+```
 
 
 
