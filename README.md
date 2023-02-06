@@ -31,7 +31,7 @@ Project for downloading data from wikimedia and analyse it automatically
   * Each function enables to answer each questions but I would have also could splitting into single tasks functions and apply several function to answer one questions. 
   * I put in a string in the code the philosophy of each functions
   * The time granularity chose was the day but it is debatable. for instance for question 2 , it not idiot to take the week to don't have drop or spike sensitive to the day of the week
-  
+    
  ## Written functions
  see [README](WrittenQuestions.md)
 
