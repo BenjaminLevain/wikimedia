@@ -33,7 +33,8 @@ StructField("datetime", TimestampType(), True)],
 )
 ```
 - But I could have also written it in a SQL syntax and with name more precise 
-```CREATE TABLE PageViewsCount (
+```
+CREATE TABLE PageViewsCount (
 domain_page_title_date_id INT PRIMARY KEY, (concatenation of the domain ,the page_title and the date) =⇒ added from the pyspark version
 domain_code VARCHAR(50) NOT NULL,
 page_title VARCHAR(50) NOT NULL,
