@@ -122,7 +122,26 @@ WHERE page_title_cleaned CONTAINS ‘coupedumondedefootbal’ AND nb_views_by_da
 GROUP BY date,page_title_cleaned,domain_code) as table_2
 ORDER BY Variation_rate DESC (Or ORDER BY date to follow with the time)
 ```
+## Assume that a page can now optionally be part of one or more categories. How would you change your schema to support this ?
+- We should add a column category into the schema ( Probably of VARCHAR type)
+- The primary id would become concatenation of four fields with the domain_code,the page title , the datetime and the category
 
-
+## Write a SQL query to compute the top 25 most visited page per category.
+- I interpreted the question like it has to be the top 25 by day like in the first question but if not the request below could be simplified by removing the date in the groupby clause
+```
+SELECT * 
+FROM
+(SELECT 
+date,
+category,
+RANK() OVER (PARTITION BY date ORDER BY DESC(nb_views_by_day) AS rank_category_for_the_day,
+nb_views_by_day
+FROM
+(SELECT  CAST(datetime as DATE) as date , category, sum(count_views) as nb_views_by_day 
+FROM PageViewsCount
+GROUP BY CAST(datetime as DATE),category) as table 1 
+) as table 2
+WHERE rank_category_for_the_day ≤25
+```
 
 
