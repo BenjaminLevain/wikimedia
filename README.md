@@ -13,11 +13,11 @@ Project for downloading data from wikimedia and analyse it automatically
  
 ## Scripts in the repo
 
-* blacklist_domains_and_pages
+* **blacklist_domains_and_pages**
   * It contains the list of the unwanted pages we want to remove from our data dowloaded on the web
   * IMPORTANT : It has to be located in the same folder of the other module scripts`
   
-* loading_data_wikimedia.py
+* **loading_data_wikimedia.py**
   * It is the script to execute to load data for a given range and a given path where to save the data
   * It has to be executed in a terminal and it has three parameters
     * First it is the start datetime parameter , writen as a string with this format `%Y-%m-%d %H:%M:%S'`
@@ -32,8 +32,8 @@ Project for downloading data from wikimedia and analyse it automatically
   * I put in a string in the code the philosophy of each functions
   * The time granularity chose was the day but it is debatable. for instance for question 2 , it not idiot to take the week to don't have drop or spike sensitive to the day of the week
     
- ## Written functions
- see [README](WrittenQuestions.md)
+* **Written functions**
+ * see [README](WrittenQuestions.md)
 
 
 
