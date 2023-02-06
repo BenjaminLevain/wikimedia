@@ -48,7 +48,7 @@ total_response_size INT NOT NULL,
 ```
 - SQL REQUEST for Q1 
 ```
-sql
+r
 SELECT
 domain_code,
 page_title,
