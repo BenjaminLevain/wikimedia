@@ -49,14 +49,14 @@ total_response_size INT NOT NULL,
 - SQL REQUEST for Q1 
 ```
 sql
-**SELECT** 
+SELECT
 domain_code,
 page_title,
 MIN_COUNT_VIEWS_OVER_THE_YEAR,
 MAX_COUNT_VIEWS_OVER_THE_YEAR,
 MAX_DELTA_COUNT_VIEWS_OVER_THE_YEAR,
-**FROM**
-**(SELECT** 
+FROM
+(SELECT
 domain_code,
 page_title,
 MAX() OVER (PARTITION BY domain_code,page_title ORDER BY nb_views_by_day)
@@ -64,14 +64,14 @@ MAX() OVER (PARTITION BY domain_code,page_title ORDER BY nb_views_by_day)
 MIN() OVER (PARTITION BY domain_code,page_title ORDER BY nb_views_by_day) AS MIN_COUNT_VIEWS_OVER_THE_YEAR
 MAX() OVER (PARTITION BY domain_code,page_title ORDER BY nb_views_by_day
 ) - MIN() OVER (PARTITION BY domain_code,page_title ORDER BY nb_views_by_day AS MAX_DELTA_COUNT_VIEWS_OVER_THE_YEAR
-**FROM**
-**(SELECT**  CAST(datetime as DATE) as date , domain_code , page_title, sum(count_views) as nb_views_by_day 
-**FROM** PageViewsCount
-**GROUP BY** CAST(datetime as DATE),page_title,domain_code) as table 1 
-**)** as table 2
-**GROUP BY** domain_code,page_title,MAX_DELTA_COUNT_VIEWS_OVER_THE_YEAR,MIN_COUNT_VIEWS_OVER_THE_YEAR,MAX_COUNT_VIEWS_OVER_THE_YEAR
-**ORDER BY**  MAX_DELTA_COUNT_VIEWS_OVER_THE_YEAR DESC
-**LIMIT** 10
+FROM
+(SELECT  CAST(datetime as DATE) as date , domain_code , page_title, sum(count_views) as nb_views_by_day 
+FROM PageViewsCount
+GROUP BY CAST(datetime as DATE),page_title,domain_code) as table 1 
+) as table 2
+GROUP BY domain_code,page_title,MAX_DELTA_COUNT_VIEWS_OVER_THE_YEAR,MIN_COUNT_VIEWS_OVER_THE_YEAR,MAX_COUNT_VIEWS_OVER_THE_YEAR
+ORDER BY MAX_DELTA_COUNT_VIEWS_OVER_THE_YEAR DESC
+LIMIT 10
 ```
 
 
