@@ -1,13 +1,4 @@
 - What additional things would you want to operate this application in a production setting?
-    - To answer
-- What might change about your solution if this application needed to run automatically for each hour of the day?
-    - To answer  
-- How would you test this application?
-    - To answer 
-- How you’d improve on this application design?
-    - To answer 
-- We want to provide a database with the data you downloaded to be able to answer similar questions (and more) to the one provided above. Please write down what the schema would look like.
-    - How would you answer the questions Q1, Q2 and Q3 in the technical test section using SQL and your schema ? Write down the SQL queries for it.
-    - Assume that a page can now optionally be part of one or more categories.
-        - How would you change your schema to support this ?
-        - Write a SQL query to compute the top 25 most visited page per category.
+    -  I would have structured my code into modules and functions to increase maintainability and readability.
+    -  I could have also added trackers on errors to debug it more easily and also some loggers to follow that the application is running normally. (I did it with print during my development of the script)
+    -  Add a unit test repo with a unit test to test my functions
