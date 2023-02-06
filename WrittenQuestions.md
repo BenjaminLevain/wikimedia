@@ -72,6 +72,57 @@ GROUP BY domain_code,page_title,MAX_DELTA_COUNT_VIEWS_OVER_THE_YEAR,MIN_COUNT_VI
 ORDER BY  MAX_DELTA_COUNT_VIEWS_OVER_THE_YEAR DESC
 LIMIT 10
 ```
+- SQL REQUEST for Q2 
+```
+SELECT 
+domain_code,
+page_title,
+ROUND ( 100 * (nb_views_by_day - nb_views_by_day) / (nb_views_by_day ),1) as Variation_rate,
+ABS(ROUND ( 100 * (nb_views_by_day - nb_views_by_day) / (nb_views_by_day ),1)) as absolute_variation_rate
+FROM
+(SELECT 
+domain_code,
+page_title,
+nb_views_by_day
+LAG(nb_views_by_day) OVER (PARTITION BY domain_code,page_title ORDER BY date
+) as nb_views_by_day_of_previous_day
+FROM
+(SELECT  CAST(datetime as DATE) as date , domain_code , page_title, sum(count_views) as nb_views_by_day 
+FROM PageViewsCount
+WHERE domain_code CONTAINS ‘FR’  
+GROUP BY CAST(datetime as DATE),page_title,domain_code) as table 1 
+WHERE nb_views_by_day >10 #(optional) ) as table_2
+ORDER BY Variation_rate DESC
+LIMIT 10
+```
+- SQL REQUEST for Q3 
+```
+SELECT 
+domain_code,
+page_title_cleaned,
+date,
+ROUND ( 100 * (nb_views_by_day - nb_views_by_day) / (nb_views_by_day ),1) as Variation_rate,
+ABS(ROUND ( 100 * (nb_views_by_day - nb_views_by_day) / (nb_views_by_day ),1)) as absolute_variation_rate
+FROM
+(SELECT 
+domain_code,
+page_title_cleaned,
+date,
+sum(count_views) as nb_views_by_day
+FROM
+(SELECT  
+CAST(datetime as DATE) as date ,
+domain_code ,
+page_title, 
+count_views ,
+LOWER(REGEXP_REPLACE(page_title,’[:_]’, ‘’)) as page_title_cleaned
+FROM PageViewsCount
+WHERE domain_code CONTAINS ‘FR’  ) as table 1 
+WHERE page_title_cleaned CONTAINS ‘coupedumondedefootbal’ AND nb_views_by_day >10    #(2nd where clause is optional) 
+GROUP BY date,page_title_cleaned,domain_code) as table_2
+ORDER BY Variation_rate DESC (Or ORDER BY date to follow with the time)
+```
+
 
 
 
